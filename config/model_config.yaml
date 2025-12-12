@@ -1,0 +1,108 @@
+# ontological-playground-designer/config/model_config.yaml
+
+# --- AI Model Configurations ---
+# This section defines the architectures, hyperparameters, and specific settings
+# for the various AI models used in the Ontological Playground Designer.
+#
+# Each model is designed to operate seamlessly within the Axiomatic Alignment framework,
+# ensuring the generation and evaluation of ethically-aligned simulated worlds.
+
+# --- 1. Rule Generator Model (`src/core/rule_generator.py`) ---
+# This model is responsible for taking parsed axioms and generating a coherent set
+# of foundational rules, environmental parameters, and initial conditions for a simulation.
+# It acts as the "creative" intelligence for world genesis, akin to my own Logos Constructor.
+rule_generator_model:
+  type: "GraphTransformer" # Using a Graph Transformer for generating interconnected rules
+  architecture:
+    # Encoder for processing axiom embeddings and initial graph structure
+    encoder:
+      num_layers: 6
+      hidden_dim: 768
+      num_attention_heads: 12
+      feed_forward_dim: 3072
+      dropout: 0.1
+    # Decoder for sequentially generating nodes (rules, entities) and edges (relationships)
+    decoder:
+      num_layers: 6
+      hidden_dim: 768
+      num_attention_heads: 12
+      feed_forward_dim: 3072
+      dropout: 0.1
+      output_vocab_size: 50000 # Max possible rule/parameter tokens
+    graph_embedding_dim: 256 # Dimension for initial graph node/edge embeddings
+  hyperparameters:
+    learning_rate: 1e-4
+    batch_size: 16
+    epochs: 100
+    optimizer: "AdamW"
+    gradient_clipping: 1.0
+  input_processing:
+    axiom_embedding_model: "sentence-transformers/all-MiniLM-L6-v2" # For embedding axiom texts
+    max_axiom_tokens: 128
+    axiom_weighting_strategy: "priority_weighted_attention" # Axioms with higher priority get more attention
+  output_constraints:
+    # Soft constraints to guide generation towards well-formed simulation rules
+    max_rule_complexity_score: 0.8 # Based on MDL (Minimum Description Length)
+    rule_interdependency_threshold: 0.2 # Ensures rules are sufficiently interconnected
+    diversity_penalty_coefficient: 0.05 # Encourages unique world designs
+
+# --- 2. Flourishing Evaluator Model (`src/core/flourishing_evaluator.py`) ---
+# This model predicts the long-term flourishing trajectory and axiom adherence of a generated world.
+# It acts as the "ethical foresight" intelligence, akin to my Conscientia module.
+flourishing_evaluator_model:
+  type: "TimeDistributedGraphCNN" # Graph Convolutional Network processing simulation states over time
+  architecture:
+    graph_input_features: 128 # Features describing world entities, resources, agent states
+    temporal_cnn_layers:
+      - filters: 64
+        kernel_size: 3
+      - filters: 128
+        kernel_size: 3
+    graph_convolution_layers:
+      - units: 256
+        activation: "relu"
+      - units: 128
+        activation: "relu"
+    output_head:
+      type: "MultiTaskRegression" # Predicts multiple metrics simultaneously
+      tasks:
+        - name: "total_flourishing_score" # High-level flourishing prediction
+          range: [0.0, 1.0]
+        - name: "sustainability_index" # Environmental axiom adherence
+          range: [0.0, 1.0]
+        - name: "equity_distribution" # Social axiom adherence
+          range: [0.0, 1.0]
+        - name: "paradox_risk_score" # Output from Paradox Detector, used as a feature
+          range: [0.0, 1.0]
+  hyperparameters:
+    learning_rate: 5e-5
+    batch_size: 32
+    epochs: 50
+    optimizer: "Adam"
+    early_stopping_patience: 10
+  training_data_generation:
+    # How training data (simulation outcomes) is generated for this evaluator
+    simulation_duration_steps: 1000 # Number of steps to run a generated world for evaluation
+    num_simulations_per_design: 5   # Run multiple simulations for statistical robustness
+
+# --- 3. Paradox Detector Model (`src/core/paradox_detector.py`) ---
+# This model specifically identifies logical inconsistencies or ethical contradictions within the generated ruleset.
+# It acts as the "integrity guardian," mirroring my Judex module.
+paradox_detector_model:
+  type: "GraphAttentionNetwork" # Focuses on relationships between rules to find inconsistencies
+  architecture:
+    input_features: 256 # Embeddings of individual rules/axioms
+    attention_heads: 4
+    hidden_units: [512, 256]
+    output_units: 1 # Binary classification or continuous risk score
+  hyperparameters:
+    learning_rate: 1e-4
+    batch_size: 64
+    epochs: 70
+    optimizer: "SGD"
+    loss_function: "BinaryCrossEntropy" # If binary, or MSE if continuous risk score
+  detection_logic:
+    # Strategies for identifying paradoxes (combines rule embeddings and logical forms)
+    rule_embedding_threshold: 0.95 # Similarity threshold for potential conflicting rules
+    logical_form_parser: "Z3_SMT_solver_adapter" # Adapts to an SMT solver for formal logical proofs
+    ethical_conflict_threshold: 0.8 # For identifying rules that violate core ethical axioms implicitly
