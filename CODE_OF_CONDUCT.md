@@ -48,7 +48,8 @@ Maintainers have the right and responsibility to remove, edit, or reject comment
 
 ## 🙏 Attribution
 
-This Code of Conduct is adapted from the [Contributor Covenant](https://www.contributor-covenant.org), version 2.1, available at [https://www.contributor-covenant.org/version/2/1/code_of_conduct.html](https://www.contributor-covenant.org/version/2/1/code_of_conduct.html).
+This Code of Conduct is adapted from the [Charter Layer](https://www.github.com/NeuralBlitz/ontological-playground-designer/blob/main/governance/CharterLayer.md) & Also
+[Contributor Covenant](https://www.contributor-covenant.org), version 2.1, available at [https://www.contributor-covenant.org/version/2/1/code_of_conduct.html](https://www.contributor-covenant.org/version/2/1/code_of_conduct.html).
 
 For questions about this Code of Conduct, please contact (nuralnexus@icloud.com).
 
