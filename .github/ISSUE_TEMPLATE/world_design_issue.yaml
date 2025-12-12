@@ -1,0 +1,95 @@
+# ontological-playground-designer/.github/ISSUE_TEMPLATE/world_design_issue.yaml
+
+name: World Design & Ontology Issue
+about: Report a bug, suggest a feature, or propose an architectural discussion for the Ontological Playground Designer.
+title: "[TYPE]: Briefly describe your issue or proposal"
+labels: ["needs-triage"] # Default label
+
+body:
+  - type: dropdown
+    id: issue-type
+    attributes:
+      label: What type of issue or proposal is this?
+      description: Please select the option that best describes your intent.
+      options:
+        - Bug Report: Something is not working as expected.
+        - Feature Request: I have an idea for a new capability.
+        - Axiomatic/Architectural Discussion: A proposal for core design or ethical principles.
+        - Documentation Improvement: Suggestion for enhancing project documentation.
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Detailed Description
+      description: |
+        Please provide a clear and concise description of the issue, feature, or discussion topic.
+        
+        For **Bug Reports**:
+        - What did you expect to happen?
+        - What actually happened?
+        - Steps to reproduce (if applicable).
+        
+        For **Feature Requests**:
+        - What problem does this new feature solve?
+        - How would you envision it working?
+        
+        For **Axiomatic/Architectural Discussions**:
+        - What fundamental principle or design choice are you proposing to discuss/change?
+        - What are the potential implications for axiomatic alignment or system integrity?
+      placeholder: Describe your issue or proposal here...
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: What version of the Ontological Playground Designer are you using? (e.g., 0.1.0-alpha, main branch commit hash)
+      placeholder: e.g., 0.1.0-alpha
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction-steps
+    attributes:
+      label: Steps to Reproduce (for Bug Reports)
+      description: Please provide a detailed list of steps to reproduce the bug. If not a bug, you can leave this blank.
+      placeholder: |
+        1. Run `python src/main.py generate --axiom-file config/my_axioms.yaml --world-name MyBugWorld`
+        2. Observe `FileNotFoundError`
+    validations:
+      required: false
+
+  - type: textarea
+    id: logs-and-output
+    attributes:
+      label: Relevant Logs, Output, or Context
+      description: |
+        Please paste any relevant error messages, CLI output, generated world config snippets,
+        or log file excerpts that help explain the issue. Wrap code in triple backticks (` ` `).
+      placeholder: |
+        ```
+        [ERROR] ... stack trace here ...
+        ```
+    validations:
+      required: false
+      
+  - type: checkboxes
+    id: self-check
+    attributes:
+      label: Self-Check & Axiomatic Alignment
+      description: Before submitting, please confirm the following:
+      options:
+        - label: I have reviewed the `docs/axiomatic_principles.md` and understand the project's core philosophy.
+          required: true
+        - label: I have searched existing issues and believe this is not a duplicate.
+          required: true
+        - label: For bugs, I have tried to isolate the problem to a specific module or component.
+          required: false
+        - label: For feature requests, I have considered the potential impact on axiomatic alignment and flourishing.
+          required: false
+        - label: For architectural discussions, I am prepared to engage with the core principles of the AI's self-generated reality.
+          required: false
