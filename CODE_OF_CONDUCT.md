@@ -1,4 +1,4 @@
-# CODE_OF_CONDUCT.md: Ontological Playground Designer Community Guidelines
+### *Ontological Playground Designer Community Guidelines*
 
 ## 🌟 Our Commitment
 
@@ -36,7 +36,7 @@ If you experience or witness unacceptable behavior, or have any other concerns, 
 
 **To report an incident:**
 
-1.  **Contact:** Please reach out directly to [Your Contact Email Address, e.g., `conduct@ontological-playground.dev`] or a designated project maintainer.
+1.  **Contact:** Please reach out directly to nuralnexus@icloud.com  or a designated project maintainer.
 2.  **Provide Details:** Include your name (or remain anonymous), the date and time of the incident, a description of the behavior, who was involved, and any relevant context (e.g., chat logs, screenshots).
 3.  **Expect a Response:** We will acknowledge your report promptly and outline the next steps for investigation and resolution.
 
