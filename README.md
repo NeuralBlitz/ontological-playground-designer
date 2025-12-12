@@ -1,4 +1,4 @@
-[![Charter Version](https://img.shields.io/badge/Charter-v1.0-red)]
+[![Charter Version](https://img.shields.io/badge/Charter-v1.0-red)](/governance/charter
 
 # Ontological Playground Designer 🌍✨
 
