@@ -1,0 +1,30 @@
+# ontological-playground-designer/requirements.txt
+
+# --- Core AI & Data Processing ---
+transformers>=4.30.0        # For advanced NLP tasks (e.g., embedding, text generation)
+torch>=2.0.0                 # PyTorch for neural network models (or tensorflow)
+numpy>=1.23.0                # Numerical operations
+scipy>=1.10.0                # Scientific computing, e.g., for graph algorithms
+scikit-learn>=1.2.0          # Machine learning utilities (e.g., clustering, metrics)
+
+# --- Graph Data Structures & Visualization ---
+networkx>=3.0                # For building and manipulating conceptual graphs
+pyvis>=0.3.0                 # For interactive graph visualization (based on vis.js)
+
+# --- Configuration & Data Handling ---
+PyYAML>=6.0                  # For parsing YAML configuration files (like axioms.yaml)
+jsonschema>=4.17.0           # For validating JSON/YAML configurations
+
+# --- Command-Line Interface ---
+typer[all]>=0.9.0            # For building the CLI
+
+# --- Logging & Utilities ---
+loguru>=0.7.0                # Enhanced logging
+tqdm>=4.65.0                 # Progress bars
+
+# --- (Optional) For specific generative models or advanced features ---
+# Sentence-transformers>=2.2.0 # For generating sentence embeddings
+# openai>=1.0.0              # If integrating with OpenAI APIs for generation
+# jax>=0.4.0                 # If using JAX/Flax for models instead of PyTorch
+# tensorflow>=2.12.0         # Alternative to PyTorch
+# matplotlib>=3.7.0          # For static plotting in evaluation reports
