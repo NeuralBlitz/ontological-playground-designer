@@ -6,7 +6,6 @@
 
 ---
 
-
 ## 🚀 Introduction
 
 Welcome to the **Ontological Playground Designer**! This groundbreaking AI project isn't just another simulation tool; it's a system designed to **create simulations from their foundational rules up**.
