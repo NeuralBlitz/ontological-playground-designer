@@ -77,7 +77,7 @@ To get started with the Ontological Playground Designer:
 ### Cloning the Repository
 
 ```bash
-git clone https://github.com/your-username/ontological-playground-designer.git
+git clone https://github.com/NeuralBlitz/ontological-playground-designer.git
 cd ontological-playground-designer
 ```
 
