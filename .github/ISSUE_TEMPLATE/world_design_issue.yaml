@@ -81,9 +81,10 @@ body:
     id: self-check
     attributes:
       label: Self-Check & Axiomatic Alignment
-      description: | Before submitting, please confirm the following:
+      description: | 
+      Before submitting, please confirm the following.
       options:
-        - label: I have reviewed the `docs/axiomatic_principles.md` and understand the project's core philosophy.
+        - label: I have reviewed the `docs/axiomatic_principles.md` and understand the project core philosophy.
           required: true
         - label: I have searched existing issues and believe this is not a duplicate.
           required: true
