@@ -4,12 +4,16 @@ import yaml
 import json
 import os
 import random
+import datetime
 from typing import Dict, Any, List, Optional
 from dataclasses import dataclass, field
 import networkx as nx
 import numpy as np
 from scipy.spatial.distance import cosine # For semantic similarity of rules
-import z3 # Placeholder for an SMT solver for formal logic checks
+try:
+    import z3
+except ImportError:
+    z3 = None
 
 # Ensure loguru is set up for structured logging
 from loguru import logger

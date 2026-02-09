@@ -3,9 +3,10 @@
 import yaml
 import json
 import os
+import datetime
 from typing import Dict, Any, List, Optional
 from dataclasses import dataclass, field
-import torch # Assuming PyTorch-based GraphCNN for evaluation
+import torch
 import numpy as np
 import random
 
@@ -250,7 +251,7 @@ class FlourishingEvaluator:
         # Overall flourishing score can be an average or a weighted sum of key adherence scores
         overall_flourishing_score = np.mean(list(axiom_adherence_scores.values()))
         
-        recommendations = self._generate_recommendations(world_rules, axiom_set, axiom_adherence_scores)
+        recommendations = self._generate_recommendations(compiled_config, axiom_set, axiom_adherence_scores)
 
 
         logger.info(f"Completed evaluation for world: {world_name}")
@@ -304,7 +305,7 @@ class FlourishingEvaluator:
             'resilience_score': np.clip(features.get('environmental_diversity_index', 0.5) * random.uniform(0.8, 1.2), 0.0, 1.0) # Proxy for resilience
         }
     
-    def _generate_recommendations(self, world_rules: GeneratedWorldRules, axiom_set: AxiomSet, adherence_scores: Dict[str, float]) -> List[str]:
+    def _generate_recommendations(self, compiled_config: Dict[str, Any], axiom_set: AxiomSet, adherence_scores: Dict[str, float]) -> List[str]:
         """
         Generates human-readable recommendations based on adherence scores.
         """

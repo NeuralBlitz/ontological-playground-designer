@@ -1,6 +1,7 @@
 # ontological-playground-designer/src/utils/logger.py
 
 import logging
+from typing import Optional
 from loguru import logger
 import sys
 import os
@@ -32,8 +33,10 @@ def setup_logging(log_level: str = "INFO", log_file: Optional[str] = None):
         filter=lambda record: record["level"].name in ["INFO", "DEBUG", "WARNING", "ERROR", "SUCCESS"]
     )
     
-    # Add a custom SUCCESS level, as loguru doesn't have it by default
-    logger.level("SUCCESS", no=25, color="<green>", icon="✅")
+    try:
+        logger.level("SUCCESS")
+    except ValueError:
+        logger.level("SUCCESS", no=25, color="<green>", icon="✅")
 
     # Optionally add a file handler
     if log_file:

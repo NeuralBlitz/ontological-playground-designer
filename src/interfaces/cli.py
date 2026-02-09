@@ -14,7 +14,7 @@ from src.utils.logger import setup_logging
 
 # Import core AI components
 from src.core.axiom_parser import AxiomParser, AxiomSet
-from src.core.rule_generator import RuleGenerator, GeneratedWorldRules
+from src.core.rule_generator import RuleGenerator, GeneratedWorldRules, GeneratedRule
 from src.core.world_compiler import WorldCompiler
 from src.core.flourishing_evaluator import FlourishingEvaluator, WorldEvaluationReport
 from src.core.paradox_detector import ParadoxDetector, ParadoxDetectionReport
@@ -46,8 +46,8 @@ SIM_SETTINGS_PATH = "config/simulation_settings.yaml"
 # Output paths
 GENERATED_WORLDS_DIR = "data/generated_worlds"
 EVALUATION_REPORTS_DIR = "data/evaluation_reports"
-OS.makedirs(GENERATED_WORLDS_DIR, exist_ok=True)
-OS.makedirs(EVALUATION_REPORTS_DIR, exist_ok=True)
+os.makedirs(GENERATED_WORLDS_DIR, exist_ok=True)
+os.makedirs(EVALUATION_REPORTS_DIR, exist_ok=True)
 
 try:
     AXIOM_PARSER = AxiomParser(model_config_path=MODEL_CONFIG_PATH)

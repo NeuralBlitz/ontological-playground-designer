@@ -187,7 +187,7 @@ class RuleGenerator:
     def _simulate_rule_generation_logic(self, axiom_embeddings: List[np.ndarray], 
                                          axiom_ids: List[str], 
                                          axiom_influence_weights: Dict[str, float],
-                                         world_name: str) -> (List[GeneratedRule], nx.DiGraph):
+                                         world_name: str) -> tuple:
         """
         A mock function to simulate the complex GraphTransformer inference process.
         This generates plausible rules and a simple graph structure for demonstration.

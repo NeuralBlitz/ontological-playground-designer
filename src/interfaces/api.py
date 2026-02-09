@@ -4,6 +4,8 @@ from fastapi import FastAPI, HTTPException, status
 from pydantic import BaseModel, Field
 from typing import List, Dict, Any, Optional
 import os
+import json
+import datetime
 import uvicorn
 
 # Ensure loguru is set up for structured logging
@@ -210,4 +212,4 @@ async def api_evaluate_world(request: WorldEvaluationRequest):
 # You would typically run this using `uvicorn src.interfaces.api:app --reload`
 if __name__ == "__main__":
     logger.info("Starting API server for Ontological Playground Designer...")
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    uvicorn.run(app, host="0.0.0.0", port=5000)
