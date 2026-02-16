@@ -97,6 +97,12 @@ class WorldEvaluationResponse(BaseModel):
     recommendations: List[str]
     message: str
 
+@app.get("/", include_in_schema=False)
+async def root():
+    """Redirect to API documentation."""
+    from fastapi.responses import RedirectResponse
+    return RedirectResponse(url="/docs")
+
 # --- API Endpoints ---
 
 @app.get("/health", status_code=status.HTTP_200_OK)
